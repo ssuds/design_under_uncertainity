@@ -1,15 +1,15 @@
-function [mean_stress,std_stress,mean_yield_strength,std_yield_strength,mean_G,std_G,Rel_MCS] = beamMCS(x)
+function [mean_stress,std_stress,mean_yield_strength,std_yield_strength,mean_G,std_G,Rel_MCS] = beamMCS(x,stdx)
 %% Parse input vector
 u_X = x(1);
-s_X = x(2);
-u_Y = x(3);
-s_Y = x(4);
-u_Sy = x(5);
-s_Sy = x(6);
-u_w = x(7);
-s_w = x(8);
-u_t = x(9);
-s_t = x(10);
+s_X = stdx(1);
+u_Y = x(2);
+s_Y = stdx(2);
+u_Sy = x(3);
+s_Sy = stdx(3);
+u_w = x(4);
+s_w = stdx(4);
+u_t = x(5);
+s_t = stdx(5);
 
 %% Generate MCS sample points
 ns = 1000000;
