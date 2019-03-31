@@ -1,9 +1,9 @@
-function [beta,R,u]=HLRF(x,kc,stdx,nd,cons)
+function [beta,R,u]=HLRF(x,kc,stdx,cons)
 
 %HL_RF uses the HL-RF method to conduct an MPP search and compute the
 %reliability using FORM.
 
-    u=zeros(1,nd); %Initialize vector to hold u
+    u=ones(1,length(x)); %Initialize vector to hold u
     iter=0; %Set iteration count to zero 
     Dif=1; %Initialize convergence criteria to unconverged
     sign = 1; 

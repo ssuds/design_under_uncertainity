@@ -31,9 +31,14 @@ disp(answer2);
 answer3 = sprintf('The reliability of this design is %d.',Rel_MCS);
 disp(answer3);
 
-%% Part 4
+%% Part 4a
 kc = 1; %Only one limit state function
-%[beta_HLRF,R_HLRF,u_HLRF]=HLRF(x,kc,stdx,nd,cons)
+nd = length(x); %Number of design variables
+cons = @beamcons; %Constraint function name
+[beta_HLRF,R_HLRF,u_HLRF]=HLRF(x,kc,stdx,cons); %Compute reliability using HL-RF method
+
+%% Part 4b
+
 
 %% Part 5a
 % See Above in parts 1 to 3
