@@ -50,6 +50,7 @@ heights = (heights/ns)/width;
 bar(locations,heights,'g'); hold on;
 xlabel('{\color{blue}Stress} / {\color{green}Yield Strength} (psi)');
 ylabel('Probability density');
+title('Probability Distribution Functions of {\color{blue}Stress} and {\color{green}Yield Strength}');
 
 % Compute distributional parameters of yield strength [psi]
 mean_yield_strength = mean(yield_strength);
@@ -71,6 +72,7 @@ heights = (heights/ns)/width;
 bar(locations,heights,'w'); hold on;
 xlabel('Limit State Function G (psi)');
 ylabel('Probability density');
+title('Probability Distribution Function of Limit State Function');
 
 % Compute distributional parameters of yield strength [psi]
 mean_G = mean(G);

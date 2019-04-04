@@ -57,16 +57,3 @@ x5c = [500 1000 400000 2.4 1];
 [mean_stress_c,std_stress_c,mean_yield_strength_c,std_yield_strength_c,mean_G_c,std_G_c,Rel_MCS_c] = beamMCS(x5c,stdx);
 answer5c = sprintf('The reliability of this design is %d.',Rel_MCS_c);
 disp(answer5c);
-
-%% Part 5 discussion
-% Of the three designs, design B is the only one that meets the target
-% reliability. While design A would be the cheapest to manufacture, it is very far away
-% from the target reliability, so would not be a good choice unless the
-% business is willing to cut costs up front and pay more down the line in
-% warranty repair costs. Design C comes close to the target reliability,
-% but has a greater volume than design B, meaning that its manufacturing
-% cost would be more expensive. However, if the manufacturer already had
-% tooling to manufacture this design and did not have the tooling to
-% manufacture design B, it may be a viable option at a slight sacrifice of
-% reliability and per unit cost.
-
