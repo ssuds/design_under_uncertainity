@@ -63,4 +63,4 @@ answer5c = sprintf('The reliability of this design is %d.',Rel_MCS_c);
 disp(answer5c);
 
 %% Part 6
-% See separate RBDO code file.
+RBDO();
