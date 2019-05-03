@@ -38,7 +38,15 @@ cons = @beamcons; %Constraint function name
 [beta_HLRF,R_HLRF,u_HLRF]=HLRF(x,kc,stdx,cons); %Compute reliability using HL-RF method
 
 %% Part 4b
+[mu_g,dgdx_mu_g]=cons(zeros(1,length(x)),x,kc,stdx)
 
+a = dgdx_mu_g;
+b = mu_g + dgdx_mu_g(1)*(-x(1)) + dgdx_mu_g(2)*(-x(2));
+Sigma = diag(stdx);
+
+stdev = sqrt((dgdx_mu_g(1)*(stdx(1)))^2+(dgdx_mu_g(2)*(stdx(2)))^2);
+
+R_EXP = normcdf((0-mu_g)/(stdev));
 
 %% Part 5a
 % See Above in parts 1 to 3
