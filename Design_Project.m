@@ -38,15 +38,11 @@ cons = @beamcons; %Constraint function name
 [beta_HLRF,R_HLRF,u_HLRF]=HLRF(x,kc,stdx,cons); %Compute reliability using HL-RF method
 
 %% Part 4b
-[mu_g,dgdx_mu_g]=cons(zeros(1,length(x)),x,kc,stdx)
+[mu_g,dgdx_mu_g]=cons(zeros(1,length(x)),x,kc,stdx); %Evaluate the constraints and sensitivities at the mean values
 
-a = dgdx_mu_g;
-b = mu_g + dgdx_mu_g(1)*(-x(1)) + dgdx_mu_g(2)*(-x(2));
-Sigma = diag(stdx);
+stdev = sqrt((dgdx_mu_g(1)*(stdx(1)))^2+(dgdx_mu_g(2)*(stdx(2)))^2+(dgdx_mu_g(3)*(stdx(3)))^2+(dgdx_mu_g(4)*(stdx(4)))^2+(dgdx_mu_g(5)*(stdx(5)))^2); %Compute the standard deviation
 
-stdev = sqrt((dgdx_mu_g(1)*(stdx(1)))^2+(dgdx_mu_g(2)*(stdx(2)))^2);
-
-R_EXP = normcdf((0-mu_g)/(stdev));
+R_EXP = normcdf((0-mu_g)/(stdev)); %Look up the reliability from a standard normal CDF
 
 %% Part 5a
 % See Above in parts 1 to 3
@@ -65,3 +61,6 @@ x5c = [500 1000 400000 2.4 1];
 [mean_stress_c,std_stress_c,mean_yield_strength_c,std_yield_strength_c,mean_G_c,std_G_c,Rel_MCS_c] = beamMCS(x5c,stdx);
 answer5c = sprintf('The reliability of this design is %d.',Rel_MCS_c);
 disp(answer5c);
+
+%% Part 6
+% See separate RBDO code file.

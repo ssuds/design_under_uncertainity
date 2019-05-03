@@ -1,4 +1,4 @@
-function [beta,R,u]=HLRF(x,kc,stdx,cons)
+function [beta,R,u,ceq,GCeq,dbeta]=HLRF(x,kc,stdx,cons)
 
 %HL_RF uses the HL-RF method to conduct an MPP search and compute the
 %reliability using FORM.
@@ -22,5 +22,6 @@ function [beta,R,u]=HLRF(x,kc,stdx,cons)
     end
 
     beta = sign*norm(u); %Compute reliability index
+    dbeta = -u./(beta*stdx);
     R = normcdf(beta); %Compute reliability  
 end
